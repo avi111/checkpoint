@@ -1,5 +1,5 @@
 import axios, {AxiosError} from 'axios';
-import {Character, SearchResult} from "../types.ts";
+import {Character, SearchResult, Species, Starship, Vehicle} from "../types.ts";
 
 export type Option = {
     label: string;
@@ -50,5 +50,32 @@ export const useAPI = () => {
         }
     };
 
-    return {getCharacter, getFilms};
+    const getVehicle = async (url: string): Promise<Vehicle> => {
+        try {
+            const response = await axios.get<Vehicle>(url);
+            return response.data;
+        } catch (error) {
+            throw handleApiError(error);
+        }
+    }
+
+    const getStarship = async (url: string): Promise<Starship> => {
+        try {
+            const response = await axios.get<Starship>(url);
+            return response.data;
+        } catch (error) {
+            throw handleApiError(error);
+        }
+    }
+
+    const getSpecies = async (url: string): Promise<Species> => {
+        try {
+            const response = await axios.get<Species>(url);
+            return response.data;
+        } catch (error) {
+            throw handleApiError(error);
+        }
+    }
+
+    return {getCharacter, getFilms, getSpecies, getStarship, getVehicle};
 };

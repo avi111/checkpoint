@@ -62,3 +62,61 @@ export type Film = {
     edited: string;       // ISO 8601 date string
     url: string;          // URL to this film resource
 }
+
+export type Starship = {
+    name: string;
+    model: string;
+    manufacturer: string;
+    cost_in_credits: string;
+    length: string;
+    max_atmosphering_speed: string;
+    crew: string;
+    passengers: string;
+    cargo_capacity: string;
+    consumables: string;
+    hyperdrive_rating: string;
+    MGLT: string;
+    starship_class: string;
+    pilots: string[]; // Array of URLs to pilot resources
+    films: string[]; // Array of URLs to film resources
+    created: string; // ISO date string
+    edited: string; // ISO date string
+    url: string; // URL of the starship resource
+}
+
+export type Vehicle = {
+    name: string;
+    model: string;
+    manufacturer: string;
+    cost_in_credits: string;
+    length: string;
+    max_atmosphering_speed: string;
+    crew: string;
+    passengers: string;
+    cargo_capacity: string;
+    consumables: string;
+    vehicle_class: string;
+    pilots: string[]; // Array of URLs to pilot resources
+    films: string[]; // Array of URLs to film resources
+    created: string; // ISO date string
+    edited: string; // ISO date string
+    url: string; // URL of the vehicle resource
+}
+
+export type Species = {
+    name: string;
+    classification: string;
+    designation: string;
+    average_height: string; // Average height in centimeters
+    skin_colors: string; // Comma-separated list of skin colors
+    hair_colors: string; // Comma-separated list of hair colors
+    eye_colors: string; // Comma-separated list of eye colors
+    average_lifespan: string; // Average lifespan in years
+    homeworld: string | null; // URL of the homeworld or null if unknown
+    language: string;
+    people: string[]; // Array of URLs to people resources
+    films: string[]; // Array of URLs to film resources
+    created: string; // ISO date string
+    edited: string; // ISO date string
+    url: string; // URL of the species resource
+}
