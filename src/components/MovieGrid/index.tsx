@@ -1,18 +1,10 @@
-import { useState } from "react";
-import { Film } from "../../types.ts";
-import {
-    Alert,
-    Box,
-    CircularProgress,
-    Container,
-    Grid,
-    TextField,
-    Typography,
-} from "@mui/material";
-import { MovieCard } from "../MovieCard";
-import { texts } from "../../strings.ts";
-import { useQuery } from "react-query";
-import { useAPI } from "../../hooks/useApi.ts";
+import {useState} from "react";
+import {Film} from "../../types.ts";
+import {Alert, Box, CircularProgress, Container, Grid, TextField, Typography,} from "@mui/material";
+import {MovieCard} from "../MovieCard";
+import {texts} from "../../strings.ts";
+import {useQuery} from "react-query";
+import {useAPI} from "../../hooks/useApi.ts";
 
 export const MovieGrid = () => {
     const [search, setSearch] = useState('');

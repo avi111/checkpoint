@@ -1,15 +1,7 @@
 import React from 'react';
-import {
-    Card,
-    CardContent,
-    Typography,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    CardHeader,
-} from '@mui/material';
-import { Film } from "../../types.ts";
-import { CharacterAccordion } from '../CharacterAccordion';
+import {Accordion, AccordionDetails, AccordionSummary, Card, CardContent, CardHeader, Typography,} from '@mui/material';
+import {Film} from "../../types.ts";
+import {CharacterAccordion} from '../CharacterAccordion';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import {texts} from "../../strings.ts";
 

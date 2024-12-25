@@ -1,22 +1,22 @@
 import React from "react";
 import {
     Accordion,
-    AccordionSummary,
     AccordionDetails,
+    AccordionSummary,
     CircularProgress,
-    Typography,
+    Paper,
     Table,
     TableBody,
     TableCell,
     TableContainer,
     TableRow,
-    Paper,
+    Typography,
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { useQuery } from "react-query";
-import { Character } from "../../types";
-import { useAPI } from "../../hooks/useApi";
-import { texts } from "../../strings.ts";
+import {useQuery} from "react-query";
+import {Character} from "../../types";
+import {useAPI} from "../../hooks/useApi";
+import {texts} from "../../strings.ts";
 
 interface Props {
     characterUrl: string;
