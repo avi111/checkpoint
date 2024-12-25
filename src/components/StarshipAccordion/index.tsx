@@ -14,40 +14,41 @@ import {
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useQuery } from "react-query";
-import { Vehicle } from "../../types"; // Vehicle type definition
+import { Starship } from "../../types"; // Starship type definition
 import { useAPI } from "../../hooks/useApi";
 import {texts} from "../../strings.ts";
 import {getErrorMessage} from "../../utils.ts";
 
 interface Props {
-    vehicleUrl: string;
+    starshipUrl: string;
 }
 
 // Strings constant
 const strings = {
-    errorFetchingVehicle: texts.ERROR_FETCHING_VEHICLE,
+    errorFetchingStarship: texts.ERROR_FETCHING_STARSHIP,
     labels: {
-        name: texts.VEHICLE_NAME,
-        model: texts.VEHICLE_MODEL,
-        manufacturer: texts.VEHICLE_MANUFACTURER,
-        cost: texts.VEHICLE_COST,
-        length: texts.VEHICLE_LENGTH,
-        maxSpeed: texts.VEHICLE_MAX_SPEED,
-        crew: texts.VEHICLE_CREW,
-        passengers: texts.VEHICLE_PASSENGERS,
-        cargoCapacity: texts.VEHICLE_CARGO_CAPACITY,
-        consumables: texts.VEHICLE_CONSUMABLES,
-        vehicleClass: texts.VEHICLE_CLASS,
+        name: texts.STARSHIP_NAME,
+        model: texts.STARSHIP_MODEL,
+        manufacturer: texts.STARSHIP_MANUFACTURER,
+        cost: texts.STARSHIP_COST,
+        length: texts.STARSHIP_LENGTH,
+        maxSpeed: texts.STARSHIP_MAX_SPEED,
+        crew: texts.STARSHIP_CREW,
+        passengers: texts.STARSHIP_PASSENGERS,
+        cargoCapacity: texts.STARSHIP_CARGO_CAPACITY,
+        consumables: texts.STARSHIP_CONSUMABLES,
+        hyperdriveRating: texts.STARSHIP_HYPERDRIVE_RATING,
+        starshipClass: texts.STARSHIP_CLASS,
     },
 };
 
-export const VehicleAccordion: React.FC<Props> = ({ vehicleUrl }) => {
-    const { getVehicle } = useAPI();
+export const StarshipAccordion: React.FC<Props> = ({ starshipUrl }) => {
+    const { getStarship } = useAPI();
 
-    // React Query for fetching vehicle data
-    const { data: vehicle, isLoading, error } = useQuery<Vehicle, Error>(
-        ["vehicle", vehicleUrl],
-        () => getVehicle(vehicleUrl)
+    // React Query for fetching starship data
+    const { data: starship, isLoading, error } = useQuery<Starship, Error>(
+        ["starship", starshipUrl],
+        () => getStarship(starshipUrl)
     );
 
     if (isLoading) {
@@ -58,20 +59,20 @@ export const VehicleAccordion: React.FC<Props> = ({ vehicleUrl }) => {
         return (
             <Accordion>
                 <AccordionSummary expandIcon={<KeyboardArrowDownIcon />}>
-                    <Typography color="error">{getErrorMessage("vehicle")}</Typography>
+                    <Typography color="error">{getErrorMessage("starship")}</Typography>
                 </AccordionSummary>
             </Accordion>
         );
     }
 
-    if (!vehicle) {
+    if (!starship) {
         return null;
     }
 
     return (
         <Accordion>
             <AccordionSummary expandIcon={<KeyboardArrowDownIcon />}>
-                <Typography>{vehicle.name}</Typography>
+                <Typography>{starship.name}</Typography>
             </AccordionSummary>
             <AccordionDetails>
                 <TableContainer component={Paper}>
@@ -79,47 +80,51 @@ export const VehicleAccordion: React.FC<Props> = ({ vehicleUrl }) => {
                         <TableBody>
                             <TableRow>
                                 <TableCell>{strings.labels.name}</TableCell>
-                                <TableCell>{vehicle.name}</TableCell>
+                                <TableCell>{starship.name}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>{strings.labels.model}</TableCell>
-                                <TableCell>{vehicle.model}</TableCell>
+                                <TableCell>{starship.model}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>{strings.labels.manufacturer}</TableCell>
-                                <TableCell>{vehicle.manufacturer}</TableCell>
+                                <TableCell>{starship.manufacturer}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>{strings.labels.cost}</TableCell>
-                                <TableCell>{vehicle.cost_in_credits}</TableCell>
+                                <TableCell>{starship.cost_in_credits}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>{strings.labels.length}</TableCell>
-                                <TableCell>{vehicle.length}</TableCell>
+                                <TableCell>{starship.length}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>{strings.labels.maxSpeed}</TableCell>
-                                <TableCell>{vehicle.max_atmosphering_speed}</TableCell>
+                                <TableCell>{starship.max_atmosphering_speed}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>{strings.labels.crew}</TableCell>
-                                <TableCell>{vehicle.crew}</TableCell>
+                                <TableCell>{starship.crew}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>{strings.labels.passengers}</TableCell>
-                                <TableCell>{vehicle.passengers}</TableCell>
+                                <TableCell>{starship.passengers}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>{strings.labels.cargoCapacity}</TableCell>
-                                <TableCell>{vehicle.cargo_capacity}</TableCell>
+                                <TableCell>{starship.cargo_capacity}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>{strings.labels.consumables}</TableCell>
-                                <TableCell>{vehicle.consumables}</TableCell>
+                                <TableCell>{starship.consumables}</TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell>{strings.labels.vehicleClass}</TableCell>
-                                <TableCell>{vehicle.vehicle_class}</TableCell>
+                                <TableCell>{strings.labels.hyperdriveRating}</TableCell>
+                                <TableCell>{starship.hyperdrive_rating}</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>{strings.labels.starshipClass}</TableCell>
+                                <TableCell>{starship.starship_class}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>

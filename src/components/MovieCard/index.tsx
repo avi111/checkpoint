@@ -5,6 +5,8 @@ import {CharacterAccordion} from '../CharacterAccordion';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import {texts} from "../../strings.ts";
 import {VehicleAccordion} from "../VehicleAccordion";
+import {StarshipAccordion} from "../StarshipAccordion";
+import {SpeciesAccordion} from "../SpeciesAccordion";
 
 interface Props {
     film: Film;
@@ -54,7 +56,7 @@ export const MovieCard: React.FC<Props> = ({ film }) => {
                     </AccordionSummary>
                     <AccordionDetails>
                         {species.map((speciesUrl) => (
-                            <Typography key={speciesUrl}>{speciesUrl}</Typography>
+                            <SpeciesAccordion key={speciesUrl} speciesUrl={speciesUrl} />
                         ))}
                     </AccordionDetails>
                 </Accordion>
@@ -64,7 +66,7 @@ export const MovieCard: React.FC<Props> = ({ film }) => {
                     </AccordionSummary>
                     <AccordionDetails>
                         {starships.map((starshipUrl) => (
-                            <Typography key={starshipUrl}>{starshipUrl}</Typography>
+                            <StarshipAccordion key={starshipUrl} starshipUrl={starshipUrl} />
                         ))}
                     </AccordionDetails>
                 </Accordion>

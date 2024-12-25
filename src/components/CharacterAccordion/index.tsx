@@ -17,6 +17,7 @@ import {useQuery} from "react-query";
 import {Character} from "../../types";
 import {useAPI} from "../../hooks/useApi";
 import {texts} from "../../strings.ts";
+import {getErrorMessage} from "../../utils.ts";
 
 interface Props {
     characterUrl: string;
@@ -49,11 +50,10 @@ export const CharacterAccordion: React.FC<Props> = ({ characterUrl }) => {
     }
 
     if (error) {
-        console.error(strings.errorFetchingCharacter, error);
         return (
             <Accordion>
                 <AccordionSummary expandIcon={<KeyboardArrowDownIcon />}>
-                    <Typography color="error">{strings.errorFetchingCharacter}</Typography>
+                    <Typography color="error">{getErrorMessage("character")}</Typography>
                 </AccordionSummary>
             </Accordion>
         );
