@@ -1,0 +1,18 @@
+export const texts = {
+    STAR_WARS_EXPLORER: 'Star Wars Explorer',
+    STAR_WARS_MOVIES_CATALOG: 'Star Wars Movies Catalog',
+    AN_ERROR_OCCURRED_WHILE_FETCHING_FILMS: 'An error occurred while fetching films',
+    ERROR_FETCHING_FILMS: 'Error fetching films:',
+    HOME: 'Home',
+    RELEASE_DATE_PREFIX: "Release Date - ",
+    DIRECTOR_LABEL: "Director:",
+    PRODUCER_LABEL: "Producer:",
+    CHARACTERS_ACCORDION_TITLE: "Characters",
+    ERROR_FETCHING_CHARACTER: 'Error fetching character:',
+    HEIGHT: 'Height',
+    MASS: 'Mass',
+    HAIR_COLOR: 'Hair Color',
+    SKIN_COLOR: 'Skin Color',
+    EYE_COLOR: 'Eye Color',
+    BIRTH_YEAR: 'Birth Year',
+}
